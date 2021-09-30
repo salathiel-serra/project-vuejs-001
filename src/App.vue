@@ -7,7 +7,7 @@
     <ul class="image-list">
       <li class="image-item" v-for="image of filterImages">
         <my-panel :title="image.titulo">
-          <img class="image" :src="image.url" :alt="image.title">
+          <image-responsive :url="image.url" :title="image.titulo"/>
         </my-panel>
       </li>
     </ul>
@@ -17,10 +17,12 @@
 
 <script>
 import Panel from "./components/shared/panel/Panel.vue";
+import ImageResponsive from "./components/shared/image-responsive/ImageResponsive.vue";
 
 export default {
   components: {
-    "my-panel": Panel
+    "my-panel": Panel,
+    "image-responsive": ImageResponsive
   },
 
   data() {
@@ -72,10 +74,6 @@ export default {
 
   .image-item {
     display: inline-block;
-  }
-
-  .image {
-    width: 100%;
   }
 
   .image-search {
