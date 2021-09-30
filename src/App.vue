@@ -3,10 +3,10 @@
     <h1 class="page-title"> {{ title }} </h1>
 
     <input type="search" class="image-search" v-on:input="search = $event.target.value" placeholder="Buscar">
-    {{ search }}
+    
     <ul class="image-list">
-      <li class="image-item" v-for="image of images">
-        <my-panel :title="image.title">
+      <li class="image-item" v-for="image of filterImages">
+        <my-panel :title="image.titulo">
           <img class="image" :src="image.url" :alt="image.title">
         </my-panel>
       </li>
@@ -28,6 +28,21 @@ export default {
       title: "Project One With Vue.js",
       images: [],
       search: ""
+    }
+  },
+
+  computed: {
+    filterImages() { 
+      if (this.search) {
+        
+        // Criando uma expressão com o valor do filtro (insensitivo)
+        let exp = new RegExp(this.search.trim(), 'i');
+        // Retorna apenas as fotos que possuem com a expressão digitada
+        return this.images.filter(image => exp.test(image.titulo));
+      
+      } else {
+        return this.images;
+      }
     }
   },
 
