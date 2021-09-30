@@ -4,7 +4,9 @@
 
     <ul class="image-list">
       <li class="image-item" v-for="image of images">
-        <img :src="image.url" :alt="image.title">
+        <my-panel :title="image.title">
+          <img class="image" :src="image.url" :alt="image.title">
+        </my-panel>
       </li>
     </ul>
     
@@ -12,10 +14,15 @@
 </template>
 
 <script>
+import Panel from "./components/shared/panel/Panel.vue";
+
 export default {
+  components: {
+    "my-panel": Panel
+  },
+
   data() {
     return {
-
       title: "Project One With Vue.js",
       images: []
     }
@@ -47,5 +54,9 @@ export default {
 
   .image-item {
     display: inline-block;
+  }
+
+  .image {
+    width: 100%;
   }
 </style>
