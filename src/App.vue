@@ -2,6 +2,8 @@
   <div class="page-content">
     <h1 class="page-title"> {{ title }} </h1>
 
+    <input type="search" class="image-search" v-on:input="search = $event.target.value" placeholder="Buscar">
+    {{ search }}
     <ul class="image-list">
       <li class="image-item" v-for="image of images">
         <my-panel :title="image.title">
@@ -24,7 +26,8 @@ export default {
   data() {
     return {
       title: "Project One With Vue.js",
-      images: []
+      images: [],
+      search: ""
     }
   },
 
@@ -58,5 +61,11 @@ export default {
 
   .image {
     width: 100%;
+  }
+
+  .image-search {
+    display: block;
+    width: 100%;
+    padding: 8px;
   }
 </style>
