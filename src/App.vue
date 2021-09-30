@@ -2,7 +2,7 @@
   <div class="page-content">
     <h1 class="page-title"> {{ title }} </h1>
 
-    <input type="search" class="image-search" v-on:input="search = $event.target.value" placeholder="Buscar">
+    <input type="search" class="image-search" @input="search = $event.target.value" placeholder="Buscar">
     
     <ul class="image-list">
       <li class="image-item" v-for="image of filterImages">

@@ -1,13 +1,21 @@
 <template>
     <div class="panel">
-        <h2 class="panel-title">{{ title }}</h2>
-        <slot class="panel-body"></slot>
+        <h2 class="panel-title" @dblclick="isVisible = !isVisible" >{{ title }}</h2>
+        <div class="panel-body" v-show="isVisible">
+            <slot></slot>
+        </div>
     </div>
 </template>
 
 <script>
     export default {
-        props: ["title"]
+        props: ["title"],
+
+        data() {
+            return {
+                isVisible: true
+            }
+        }
     }
 </script>
 
