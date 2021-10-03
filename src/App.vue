@@ -1,12 +1,6 @@
 <template>
   <div class="page-content">
-    <nav>
-      <ul>       
-          <li v-for="route in routes">
-            <router-link :to="route.path ? route.path : '/'">{{ route.title }}</router-link>
-          </li>
-      </ul>
-    </nav>
+    <my-menu :routes="routes"></my-menu>
 
     <router-view></router-view>
   </div>
@@ -14,8 +8,13 @@
 
 <script>
   import { routes } from './routes';
+  import Menu from './components/menu/Menu.vue';
 
   export default {
+    components: {
+      "my-menu": Menu
+    },
+
     data() {
       return {
         routes
