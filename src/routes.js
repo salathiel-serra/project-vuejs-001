@@ -3,11 +3,13 @@ import Registration from './components/registration/Registration.vue';
 
 export const routes = [
     {
-        path: '',
-        component: Home
+        path: "",
+        component: Home,
+        title: "Home"
     },
     {
-        path: '/create',
-        component: Registration
+        path: "/create",
+        component: Registration,
+        title: "Cadastro"
     }
 ];
