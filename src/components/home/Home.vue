@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import Panel from "./components/shared/panel/Panel.vue";
-import ImageResponsive from "./components/shared/image-responsive/ImageResponsive.vue";
+import Panel from "../shared/panel/Panel.vue";
+import ImageResponsive from "../shared/image-responsive/ImageResponsive.vue";
 
 export default {
   components: {
