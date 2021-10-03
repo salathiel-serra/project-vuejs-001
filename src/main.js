@@ -11,7 +11,8 @@ Vue.use(VueRouter);
 
 // Criando instancia de VueRouter para rotear as rotas mapeadas
 const router = new VueRouter({
-  routes: routes
+  routes: routes,
+  mode: 'history' //Removendo prefixo '#' de URL
 });
 
 new Vue({
