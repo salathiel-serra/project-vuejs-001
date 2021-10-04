@@ -8,6 +8,7 @@
       <li class="image-item" v-for="image of filterImages">
         <my-panel :title="image.titulo">
           <image-responsive :url="image.url" :title="image.titulo"/>
+          <my-button type="button" name="Remover" @confirmedAction="removeImage(image)"/>
         </my-panel>
       </li>
     </ul>
@@ -17,11 +18,13 @@
 <script>
 import Panel from "../shared/panel/Panel.vue";
 import ImageResponsive from "../shared/image-responsive/ImageResponsive.vue";
+import Button from "../shared/button/Button.vue";
 
 export default {
   components: {
     "my-panel": Panel,
-    "image-responsive": ImageResponsive
+    "image-responsive": ImageResponsive,
+    "my-button": Button
   },
 
   data() {
@@ -44,6 +47,12 @@ export default {
       } else {
         return this.images;
       }
+    }
+  },
+
+  methods: {
+    removeImage(image) {
+      alert("Deletado com sucesso!");
     }
   },
 
