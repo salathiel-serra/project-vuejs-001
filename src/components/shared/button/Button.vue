@@ -5,7 +5,19 @@
 
 <script>
     export default {
-        props: ["type", "name", "confirmationRequired", "buttonClass"],
+        // props: ["type", "name", "confirmationRequired", "buttonClass"],
+        props: {
+            type: {
+                required: true,
+                type: String
+            },
+            name: {
+                required: true,
+                type: String
+            },
+            confirmationRequired: Boolean,
+            buttonClass: String
+        },
 
         methods: {
             confirmAction() {
