@@ -8,7 +8,12 @@
       <li class="image-item" v-for="image of filterImages">
         <my-panel :title="image.titulo">
           <image-responsive :url="image.url" :title="image.titulo"/>
-          <my-button type="button" name="Remover" @confirmedAction="removeImage(image)"/>
+          <my-button 
+            type="button" 
+            name="Remover" 
+            @confirmedAction="removeImage(image)" 
+            :confirmationRequired="false" 
+            buttonClass="warning" />
         </my-panel>
       </li>
     </ul>

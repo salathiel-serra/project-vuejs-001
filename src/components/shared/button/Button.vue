@@ -1,17 +1,29 @@
 <template>
-    <button @click="confirmAction()" class="button button-warning" :type="type">{{ name }}</button>
+    <button @click="confirmAction()" class="button" :class="buttonStyle" :type="type">{{ name }}</button>
 
 </template>
 
 <script>
     export default {
-        props: ["type", "name"],
+        props: ["type", "name", "confirmationRequired", "buttonClass"],
 
         methods: {
             confirmAction() {
-                if( confirm("Deseja confirmar a ação") ){
-                    this.$emit("confirmedAction")
+                if(this.confirmationRequired) {
+                    if(confirm("Deseja confirmar a ação")){
+                        this.$emit("confirmedAction");
+                    }
+                    return;
                 }
+                this.$emit("confirmedAction");
+            }
+        },
+
+        computed: {
+            buttonStyle() {
+                console.log(this.buttonClass)
+                if(this.buttonClass == "default" || !this.buttonClass) return "button-default";
+                if(this.buttonClass == "warning") return "button-warning";
             }
         }
     }
